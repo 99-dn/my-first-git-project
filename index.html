@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Push & Pull Day 3</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-900 text-white">
+ 
+<script>
+  tailwind.config = {
+    darkMode: 'class'
+  }
+</script>
+  <body  class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
     <!-- Header/Navigation -->
     <header class="p-6 flex justify-between items-center max-w-6xl mx-auto">
       <h1 class="text-2xl font-bold">Joe Cole</h1>
@@ -25,42 +30,43 @@
         >
           Welcome to Day 1
         </h2>
-        <p class="text-xl md:text-2xl text-gray-400 mb-8">
+        <p class="text-xl md:text-2xl text-gray-900 mb-8 dark:text-white">
           This is my first Git project. I'm learning to code like a pro.
         </p>
-        <button
-          class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105"
+        <button type="button" onclick="toggleDarkMode()"
+          class="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold transition transform hover:scale-105"
         >
-          Get Started
+          Theme toggle
         </button>
+   
       </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 px-6 bg-gray-800">
+    <section class="py-20 px-6 bg-gray-200 dark:bg-gray-900">
       <div class="max-w-6xl mx-auto">
-        <h3 class="text-4xl font-bold text-center mb-12">What I'm Learning</h3>
+        <h3 class="text-4xl font-bold text-center mb-12 text-gray-900">What I'm Learning</h3>
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-gray-900 p-8 rounded-lg">
+          <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
             <div class="text-4xl mb-4">🚀</div>
-            <h4 class="text-2xl font-bold mb-3">Git Basics</h4>
-            <p class="text-gray-400">
+            <h4 class="text-2xl font-bold mb-3 text-blue-500">Git Basics</h4>
+            <p class="text-gray-900">
               Learning to track my code changes like a professional developer.
             </p>
           </div>
 
-          <div class="bg-gray-900 p-8 rounded-lg">
+          <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
             <div class="text-4xl mb-4">💻</div>
-            <h4 class="text-2xl font-bold mb-3">Tailwind CSS</h4>
-            <p class="text-gray-400">
+            <h4 class="text-2xl font-bold mb-3 text-blue-500">Tailwind CSS</h4>
+            <p class="text-gray-900">
               Building beautiful, responsive designs with utility classes.
             </p>
           </div>
 
-          <div class="bg-gray-900 p-8 rounded-lg">
+          <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
             <div class="text-4xl mb-4">🎯</div>
-            <h4 class="text-2xl font-bold mb-3">Deployment</h4>
-            <p class="text-gray-400">
+            <h4 class="text-2xl font-bold mb-3 text-blue-500">Deployment</h4>
+            <p class="text-gray-900">
               Shipping real projects to the web every single week.
             </p>
           </div>
@@ -69,8 +75,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 text-center text-teal-500">
+    <footer class="py-12 text-center text-blue-900 dark:text-white">
       <p>Built on Day 1 of my 61-day journey 🔥</p>
     </footer>
+    <script>
+      function toggleDarkMode(){
+        const html = document.documentElement
+
+        html.classList.toggle('dark')
+
+        if(html.classList.contains('dark')){
+          localStorage.setItem('theme', 'dark')
+        }else{
+          localStorage.setItem('theme', 'light')
+        }
+      }
+      if(localStorage.getItem('theme')  === 'dark'){
+        html.classList.add('dark')
+      }
+    </script>
   </body>
 </html>
